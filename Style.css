@@ -63,6 +63,17 @@ body {
     cursor: pointer;
     color: #55d0ff;
 }
+.testimonial-link {
+    margin-bottom: 50px;
+    color: #55d0ff; 
+    text-decoration: none; /* Remove underline by default */
+    font-size: 17px; /* Slightly larger font size for emphasis */
+    transition: text-decoration 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.testimonial-link:hover {
+text-decoration: underline; /* Underline on hover */
+}
 .search-dropdown {
     max-height: 300px; /* Allow the dropdown to expand fully */
     height: auto;
@@ -128,6 +139,8 @@ body {
     margin-right: 5px;
     font-size: 25px;
 }
+
+
 
 /*First-Section*/
 .First-Section {
