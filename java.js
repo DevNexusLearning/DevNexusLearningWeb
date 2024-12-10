@@ -6,13 +6,6 @@ window.onload = function() {
 
     document.getElementById("search-icon").addEventListener("click", function() {
         document.getElementById("search-dropdown").classList.add("show");
-        const dropdown = document.getElementById("search-dropdown");
-    dropdown.classList.add("show");
-    console.log("Dropdown has " + dropdown.children.length + " items.");
-
-    Array.from(dropdown.children).forEach((child, index) => {
-        console.log(`Link ${index + 1}:`, child.textContent);
-    });
     });
 
     // Hide the dropdown when the user clicks outside the search box
@@ -23,10 +16,21 @@ window.onload = function() {
             dropdown.classList.remove("show");
         }
     });
+
+    // Filter the dropdown items based on input text
+    document.getElementById("search-input").addEventListener("input", function() {
+        var filter = this.value.toLowerCase(); // Get the search text
+        var dropdown = document.getElementById("search-dropdown");
+        var items = dropdown.getElementsByTagName("a"); // Get all the links in the dropdown
+
+        // Loop through all the dropdown items and hide/show based on search input
+        Array.from(items).forEach(function(item) {
+            var text = item.textContent || item.innerText;
+            if (text.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = ""; // Show the item if it matches the search text
+            } else {
+                item.style.display = "none"; // Hide the item if it doesn't match
+            }
+        });
+    });
 }
-
-
-
-
-
-
